@@ -57,9 +57,7 @@ In case the raw data is modified in such a way that the original time bucket has
 ###### add primary key columns — “primaryKeyColumns”: [“studentID”]
 ###### under transcript-schema.json
 ###### Enable upsert mode — full, By default it is None
-“upsertConfig”: {
-“mode”: “FULL”
-}
+###### “upsertConfig”: {“mode”: “FULL”}
 ##### Pinot also added the partial update support in v0.8.0+
 ##### Use strictReplicaGroup for routing
 
