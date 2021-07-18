@@ -1,0 +1,42 @@
+{
+  "schemaName": "transcript",
+  "primaryKeyColumns": ["studentID"],
+  "dimensionFieldSpecs": [
+    {
+      "name": "studentID",
+      "dataType": "INT"
+    },
+    {
+      "name": "firstName",
+      "dataType": "STRING"
+    },
+    {
+      "name": "lastName",
+      "dataType": "STRING"
+    },
+    {
+      "name": "middleName",
+      "dataType": "STRING"
+    },
+    {
+      "name": "gender",
+      "dataType": "STRING"
+    },
+    {
+      "name": "subject",
+      "dataType": "STRING"
+    }
+  ],
+  "metricFieldSpecs": [
+    {
+      "name": "score",
+      "dataType": "FLOAT"
+    }
+  ],
+  "dateTimeFieldSpecs": [{
+    "name": "timestamp",
+    "dataType": "LONG",
+    "format" : "1:MILLISECONDS:EPOCH",
+    "granularity": "1:MILLISECONDS"
+  }]
+}

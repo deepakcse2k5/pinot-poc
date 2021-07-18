@@ -1,0 +1,15 @@
+{"studentID":201,"firstName":"Natalie","middleName":"kumar","lastName":"Jones","gender":"Female","subject":"Maths","score":3.8,"timestamp":1571900400000}
+{"studentID":202,"firstName":"Natalie1","middleName":"kumar","lastName":"Jones","gender":"Female","subject":"Physics","score":3.5,"timestamp":1571900400000}
+{"studentID":203,"firstName":"Bob","middleName":"kumar","lastName":"Lewis","gender":"Male","subject":"Maths","score":3.2,"timestamp":1571900400000}
+{"studentID":204,"firstName":"Bob1","middleName":"kumar","lastName":"Lewis","gender":"Male","subject":"Biology","score":3.6,"timestamp":1572418800000}
+{"studentID":205,"firstName":"Jane","middleName":"kumar","lastName":"Doe","gender":"Female","subject":"Geography","score":3.8,"timestamp":1572505200000}
+{"studentID":206,"firstName":"Natalie","middleName":"kumar1","lastName":"Jones","gender":"Female","subject":"Maths","score":3.8,"timestamp":1571900400000}
+{"studentID":207,"firstName":"Natalie1","middleName":"kumar1","lastName":"Jones","gender":"Female","subject":"Physics","score":3.5,"timestamp":1571900400000}
+{"studentID":208,"firstName":"Bob","middleName":"kumar1","lastName":"Lewis","gender":"Male","subject":"Maths","score":3.2,"timestamp":1571900400000}
+{"studentID":209,"firstName":"Bob1","middleName":"kumar1","lastName":"Lewis","gender":"Male","subject":"Biology","score":3.6,"timestamp":1572418800000}
+{"studentID":210,"firstName":"Jane","middleName":"kumar1","lastName":"Doe","gender":"Female","subject":"Geography","score":3.8,"timestamp":1572505200000}
+{"studentID":211,"firstName":"Natalie","middleName":"kumar2","lastName":"Jones","gender":"Female","subject":"Maths","score":3.8,"timestamp":1571900400000}
+{"studentID":212,"firstName":"Natalie1","middleName":"kumar2","lastName":"Jones","gender":"Female","subject":"Physics","score":3.5,"timestamp":1571900400000}
+{"studentID":213,"firstName":"Bob","middleName":"kumar2","lastName":"Lewis","gender":"Male","subject":"Maths","score":3.2,"timestamp":1571900400000}
+{"studentID":214,"firstName":"Bob1","middleName":"kumar2","lastName":"Lewis","gender":"Male","subject":"Biology","score":3.6,"timestamp":1572418800000}
+{"studentID":215,"firstName":"Jane","middleName":"kumar2","lastName":"Doe","gender":"Female","subject":"Geography","score":3.8,"timestamp":1572505200000}
