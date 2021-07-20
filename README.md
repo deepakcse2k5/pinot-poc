@@ -50,7 +50,7 @@ In case the raw data is modified in such a way that the original time bucket has
 ##### Load Data
 ###### bin/kafka-console-producer.sh \
 — broker-list localhost:19092 \
-— topic transcript-topic < /${PINOT_DIR}/upsert_transcript3.json
+— topic transcript-topic < /${PINOT_DIR}/upsert_transcript.json
 ##### Stream Ingestion with Upsert
 ###### To enable upsert on pinot table , we need to change a couple of configuration
 ###### Define the primary key in the schema :
