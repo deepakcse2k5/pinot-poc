@@ -1,0 +1,3 @@
+studentID,firstName,lastName,score,timestampInEpoch,gender,subject,middleName
+200,Lucy1,Smith,3.8,1570863600000,Female,Maths,kumar
+200,Lucy2,Smith,3.5,1571036400000,Male,English,kumar

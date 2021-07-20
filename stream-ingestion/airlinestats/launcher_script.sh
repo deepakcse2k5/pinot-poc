@@ -2,7 +2,7 @@
 
 
 #  start kafka
- bin/pinot-admin.sh  StartKafka -zkAddress=localhost:2123/kafka -port 19092
+ bin/pinot-admin.sh  StartKafka -zkAddress=localhost:2181/kafka -port 19092
 
 
 # create topic
@@ -21,13 +21,17 @@ bin/pinot-admin.sh AddTable \
     -exec
 
 
+bin/pinot-admin.sh AddTable \
+    -tableConfigFile ${PINOT_DIR}/airlinestats_realtime_table_config.json \
+    -exec
+
 
 
 # Push  JSON into Kafka topic
 
 bin/kafka-console-producer.sh \
     --broker-list localhost:19092 \
-    --topic transcript-topic < /${PINOT_DIR}/data/01/01/
+    --topic airlineStats-topic < /${PINOT_DIR}/data/01/01/*
 
 
 # update schema

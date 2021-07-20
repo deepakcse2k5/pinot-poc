@@ -1,0 +1,3 @@
+studentID,firstName,lastName,score,timestampInEpoch,gender,subject,middleName
+201,Bob3,King,3.2,1571900400000,Male,Maths,kumar
+202,Nick3,Young,3.6,1572418800000,Male,Physics,kumar

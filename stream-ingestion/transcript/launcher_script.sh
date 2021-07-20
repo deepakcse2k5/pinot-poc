@@ -30,7 +30,7 @@ bin/pinot-admin.sh AddTable \
 
 bin/kafka-console-producer.sh \
     --broker-list localhost:19092 \
-    --topic transcript-topic < /${PINOT_DIR}/upsert_transcript3.json
+    --topic transcript-topic < /${PINOT_DIR}/upsert_transcript.json
 
 
 # update schema
@@ -48,3 +48,4 @@ bin/pinot-admin.sh StreamAvroIntoKafka \
   pinot-admin.sh ValidateSegment -tablePrefix transcript_realtime -clusterName PinotCluster -zkAddress localhost:2123
 
 
+bin/pinot-admin.sh ConvertPinotSegment -dataDir /Users/deemish2/git/pinot-poc/controller/data/transcript/transcript__0__0__20210720T0224Z -outputDir /Users/deemish2/git/pinot-poc/server/data/ -outputFormat CSV -overwrite -csvDelimiter , --csvWithHeader

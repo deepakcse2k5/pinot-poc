@@ -1,5 +1,5 @@
 {
-    "tableName": "transcript_offline",
+    "tableName": "transcript",
     "tableType":"OFFLINE",
     "segmentsConfig" : {
       "timeColumnName": "timestamp",
