@@ -1,5 +1,5 @@
 {
-  "tableName": "airlineStats_realtime",
+  "tableName": "airlineStats",
   "tableType": "REALTIME",
   "segmentsConfig": {
     "timeColumnName": "DaysSinceEpoch",
@@ -32,13 +32,13 @@
   },
   "task": {
     "taskTypeConfigsMap": {
-      "realtimeToOfflineSegmentsTask": {
-        "bucketTimePeriod": "1d",
-        "bufferTimePeriod": "30d",
+      "RealtimeToOfflineSegmentsTask": {
+        "bucketTimePeriod": "1h",
+        "bufferTimePeriod": "2d",
         "timeColumnTransformFunction": "round(timestamp, 60000)",
         "collectorType": "rollup",
         "score.aggregationType": "max",
-        "maxNumRecordsPerSegment": "5"
+        "maxNumRecordsPerSegment": "500"
       }
     }
   },

@@ -14,5 +14,19 @@
   },
   "metadata": {
     "customConfigs": {}
+  },
+  "ingestionConfig": {
+    "batchIngestionConfig": {
+      "segmentIngestionType": "APPEND",
+      "segmentIngestionFrequency": "HOURLY",
+      "segmentNameSpec": {},
+      "pushSpec": {}
+    }
+  },
+  "task": {
+    "taskTypeConfigsMap": {
+      "SegmentGenerationAndPushTask": {
+      }
+    }
   }
 }
