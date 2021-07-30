@@ -11,7 +11,8 @@
     },
     "tableIndexConfig" : {
       "loadMode"  : "MMAP",
-      "nullHandlingEnabled":true
+      "nullHandlingEnabled":true,
+      "enableDefaultStarTree":true
     },
     "tenants" : {
       "broker":"DefaultTenant",
