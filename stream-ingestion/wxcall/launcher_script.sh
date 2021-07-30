@@ -11,7 +11,7 @@ bin/pinot-admin.sh  StartKafka -zkAddress=localhost:2181/kafka -port 19092
 
 # create topic
 
- bin/kafka-topics.sh --create --bootstrap-server localhost:19092--replication-factor 1 --partitions 1 --topic wxcall-topic
+ bin/kafka-topics.sh --create --bootstrap-server localhost:19092 --replication-factor 1 --partitions 1 --topic wxcall-topic
 
 # Upload  schema and table config
 export PINOT_DIR=/Users/deemish2/git/pinot-poc/stream-ingestion/wxcall

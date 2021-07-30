@@ -9,7 +9,10 @@
     "segmentPushType": "APPEND",
     "segmentAssignmentStrategy": "BalanceNumSegmentAssignmentStrategy",
     "schemaName": "transcript",
-    "replicasPerPartition": "1"
+    "replicasPerPartition": "1",
+    "completionConfig": {
+      "completionMode": "DOWNLOAD"
+    } 
   },
   "tenants": {},
   "tableIndexConfig": {
@@ -23,8 +26,8 @@
       "stream.kafka.hlc.zk.connect.string": "localhost:2191/kafka",
       "stream.kafka.zk.broker.url": "localhost:2191/kafka",
       "stream.kafka.broker.list": "localhost:19092",
-      "realtime.segment.flush.threshold.time": "3600",
-      "realtime.segment.flush.threshold.size": "10",
+      "realtime.segment.flush.threshold.time": "1h",
+      "realtime.segment.flush.threshold.segment.size": "1000",
       "stream.kafka.consumer.prop.auto.offset.reset": "smallest",
       "realtime.segment.flush.threshold.rows": 10000
     }
@@ -33,13 +36,14 @@
     "taskTypeConfigsMap": {
       "RealtimeToOfflineSegmentsTask": {
         "bucketTimePeriod": "1h",
-        "bufferTimePeriod": "2d",
+        "bufferTimePeriod": "2h",
         "timeColumnTransformFunction": "round(timestamp, 60000)",
         "collectorType": "concat",
-        "maxNumRecordsPerSegment": "100"
+        "maxNumRecordsPerSegment": "10000"
       }
     }
   },
+  
   "metadata": {
     "customConfigs": {}
   },
@@ -50,3 +54,5 @@
     "mode": "FULL"
   }
 }
+
+

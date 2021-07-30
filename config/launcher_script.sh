@@ -4,8 +4,27 @@ cd apache-pinot-incubating-${PINOT_VERSION}-bin
 bin/pinot-admin.sh StartZookeeper
 
 
+# run Pinot Service Manager
+
+# To run controller,broker and server in a single command
+
+export PINOT_DIR=/Users/deemish2/git/pinot-poc
+bin/pinot-admin.sh StartServiceManager  -zkAddress localhost:2181 -clusterName pinot-quickstart  -port -1  -bootstrapConfigPaths  ${PINOT_DIR}/config/pinot-controller.conf  ${PINOT_DIR}/config/pinot-broker.conf ${PINOT_DIR}/config/pinot-server.conf
 
 
+
+export PINOT_DIR=/Users/deemish2/git/pinot-poc
+bin/pinot-admin.sh StartServiceManager  -zkAddress localhost:2181 -clusterName pinot-quickstart  -port -1  -bootstrapConfigPaths  ${PINOT_DIR}/config/pinot-controller1.conf  ${PINOT_DIR}/config/pinot-broker1.conf ${PINOT_DIR}/config/pinot-server1.conf
+
+#start minion 
+
+export PINOT_DIR=/Users/deemish2/git/pinot-poc
+
+bin/pinot-admin.sh StartMinion -clusterName pinot-quickstart -zkAddress localhost:2181 -configFileName ${PINOT_DIR}/config/pinot-minion.conf
+
+
+
+# To run controller,broker and server using seperate command
 
 # run pinot controller
 export PINOT_DIR=/Users/deemish2/git/pinot-poc
@@ -21,22 +40,8 @@ bin/pinot-admin.sh StartBroker -clusterName pinot-quickstart -zkAddress localhos
 export PINOT_DIR=/Users/deemish2/git/pinot-poc
 bin/pinot-admin.sh StartServer -clusterName pinot-quickstart -zkAddress localhost:2181 -configFileName ${PINOT_DIR}/config/pinot-server.conf
 
-#start minion 
-
-export PINOT_DIR=/Users/deemish2/git/pinot-poc
-
-bin/pinot-admin.sh StartMinion -clusterName pinot-quickstart -zkAddress localhost:2181 -configFileName ${PINOT_DIR}/config/pinot-minion.conf
 
 
-
-
-# run Pinot Service Manager
-
-export PINOT_DIR=/Users/deemish2/git/pinot-poc
-
-bin/pinot-admin.sh StartServiceManager -zkAddress localhost:2181 -clusterName pinot-quickstart  -port -1 -bootstrapServices  [] -bootstrapConfigPaths ${PINOT_DIR}/config/pinot-controller.conf  ${PINOT_DIR}/config/pinot-broker.conf
-
-bin/pinot-admin.sh StartBroker -zkAddress localhost:2181 -clusterName pinot-quickstart  -bootstrapServices CONTROLLER BROKER -bootstrapConfigPaths ${PINOT_DIR}/config/pinot-controller.conf  ${PINOT_DIR}/config/pinot-broker.conf
 
 # cluster info
 

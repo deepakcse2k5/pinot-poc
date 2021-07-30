@@ -17,7 +17,7 @@ bin/pinot-admin.sh ConvertPinotSegment -dataDir /var/folders/31/k4zym6155mv4_ymq
 
 
 bin/pinot-admin.sh LaunchDataIngestionJob \
-    -jobSpecFile ${PINOT_DIR}/batch-job-spec-offline.yml
+    -jobSpecFile /Users/deemish2/git/pinot-poc/batch/transcript/batch-job-spec.yml
 
 
 # convert pinot segment:

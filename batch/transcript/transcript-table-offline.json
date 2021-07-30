@@ -10,7 +10,8 @@
       "schemaName" : "transcript"
     },
     "tableIndexConfig" : {
-      "loadMode"  : "MMAP"
+      "loadMode"  : "MMAP",
+      "nullHandlingEnabled":true
     },
     "tenants" : {
       "broker":"DefaultTenant",
@@ -19,9 +20,12 @@
     "ingestionConfig": {
       "batchIngestionConfig": {
         "segmentIngestionType": "APPEND",
-        "segmentIngestionFrequency": "DAILY"
+        "segmentIngestionFrequency": "HOURLY"
       }
     },
     
     "metadata": {}
   }
+
+
+  
