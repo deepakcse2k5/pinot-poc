@@ -4,9 +4,9 @@ executionFrameworkSpec:
   segmentTarPushJobRunnerClassName: 'org.apache.pinot.plugin.ingestion.batch.standalone.SegmentTarPushJobRunner'
   segmentUriPushJobRunnerClassName: 'org.apache.pinot.plugin.ingestion.batch.standalone.SegmentUriPushJobRunner'
 jobType: SegmentCreationAndTarPush
-inputDirURI: '/Users/deemish2/git/pinot-poc/batch/transcript/rawdata/01'
+inputDirURI: '/Users/deemish2/git/pinot-poc/batch/transcript/rawdata/03'
 includeFileNamePattern: 'glob:**/*.csv'
-outputDirURI: '/Users/deemish2/git/pinot-poc/batch/transcript/segments/01'
+outputDirURI: '/Users/deemish2/git/pinot-poc/batch/transcript/segments/03'
 overwriteOutput: true
 pinotFSSpecs:
   - scheme: file
@@ -19,5 +19,10 @@ tableSpec:
   tableName: 'transcript'
   schemaURI: 'http://localhost:9000/tables/transcript/schema'
   tableConfigURI: 'http://localhost:9000/tables/transcript'
+segmentNameGeneratorSpec:
+  type: normalizedDate
+  configs:
+    segment.name.prefix: 'transcript_batch'
+    exclude.sequence.id: true
 pinotClusterSpecs:
   - controllerURI: 'http://localhost:9000'

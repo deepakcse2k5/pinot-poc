@@ -1,0 +1,90 @@
+{
+  "tableName": "transcript",
+  "tableType": "REALTIME",
+  "segmentsConfig": {
+    "timeColumnName": "timestamp",
+    "timeType": "MILLISECONDS",
+    "retentionTimeUnit": "DAYS",
+    "retentionTimeValue": "1",
+    "segmentPushType": "APPEND",
+    "segmentAssignmentStrategy": "BalanceNumSegmentAssignmentStrategy",
+    "schemaName": "transcript",
+    "replicasPerPartition": "1",
+    "completionConfig": {
+      "completionMode": "DOWNLOAD"
+    } 
+  },
+  "segmentMergeConfig":{
+    "mergeType":"ROLL_UP",
+    "mergeStrategy":"TIME_BASED",
+    "rollUPConfig":{
+      "preAggregateType":{
+        "min_metric":"MIN",
+        "max_metric":"MAX"
+      },
+      "settings":[{
+        "rollUpFrom":"SECONDS",
+        "rollUpTo":"HOURS",
+        "minNumberSegments":10,
+        "minNumberTotalDocs":1000
+        },{
+          "rollUpFrom":"HOURS",
+          "rollUpTo":"DAYS",
+          "minNumberSegments":20,
+          "minNumberTotalDocs":100000
+        }
+      ]
+    },
+    "minNumberSegments":10,
+    "minNumberTotalDocs":1000,
+    "oldSegmentCleanup":true
+  },
+  "tenants": {},
+  "tableIndexConfig": {
+    "loadMode": "MMAP",
+    "streamConfigs": {
+      "streamType": "kafka",
+      "stream.kafka.consumer.type": "lowlevel",
+      "stream.kafka.topic.name": "transcript-topic",
+      "stream.kafka.decoder.class.name": "org.apache.pinot.plugin.stream.kafka.KafkaJSONMessageDecoder",
+      "stream.kafka.consumer.factory.class.name": "org.apache.pinot.plugin.stream.kafka20.KafkaConsumerFactory",
+      "stream.kafka.hlc.zk.connect.string": "localhost:2191/kafka",
+      "stream.kafka.zk.broker.url": "localhost:2191/kafka",
+      "stream.kafka.broker.list": "localhost:19092",
+      "realtime.segment.flush.threshold.time": "1h",
+      "realtime.segment.flush.threshold.segment.size": "1000",
+      "stream.kafka.consumer.prop.auto.offset.reset": "smallest",
+      "realtime.segment.flush.threshold.rows": 1000
+    }
+  },
+  "task": {
+    "taskTypeConfigsMap": {
+      "RealtimeToOfflineSegmentsTask": {
+        "bucketTimePeriod": "1h",
+        "bufferTimePeriod": "2h",
+        "timeColumnTransformFunction": "round(timestamp, 60000)",
+        "collectorType": "concat",
+        "maxNumRecordsPerSegment": "10000"
+      },"mergeRollupTask":{
+        "mergeType":"concat",
+        "bucketTimePeriod": "1h",
+        "bufferTimePeriod": "2h",
+        "maxNumRecordsPerSegment": "1000",
+        "maxNumRecordsPerTask": "5000"
+      }
+    }
+    
+  },
+  
+  "metadata": {
+    "customConfigs": {}
+  },
+  "routing": {
+    "instanceSelectorType": "strictReplicaGroup"
+  },
+  "upsertConfig": {
+    "mode": "FULL"
+  }
+}
+
+

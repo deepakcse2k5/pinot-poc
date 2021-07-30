@@ -1,0 +1,171 @@
+{
+    "schemaName": "wxcanalytics",
+    "dimensionFieldSpecs": [
+      {
+        "name": "callId",
+        "dataType": "STRING"
+      },
+      {
+          "name": "orgId",
+          "dataType": "STRING"
+      },
+      {
+          "name": "hasAudio",
+          "dataType": "BOOLEAN"
+      },
+      {
+        "name": "hasVideo",
+        "dataType": "BOOLEAN"
+      },
+      {
+        "name": "durationSecs",
+        "dataType": "INT"
+      },
+      {
+        "name": "callType",
+        "dataType": "STRING"
+      },
+      {
+        "name": "callDirection",
+        "dataType": "STRING"
+      },
+      {
+        "name": "serverRegion",
+        "dataType": "STRING"
+      },
+      {
+        "name": "hardwareType",
+        "dataType": "STRING"
+      },
+      {
+        "name": "clientType",
+        "dataType": "STRING"
+      },
+      {
+        "name": "osVersion",
+        "dataType": "STRING"
+      },
+      {
+        "name": "wxcCallPath",
+        "dataType": "STRING"
+      },
+      {
+        "name": "serverName",
+        "dataType": "STRING"
+      },
+      {
+        "name": "isValidClientVersion",
+        "dataType": "BOOLEAN"
+      },
+      {
+        "name": "clientVersion",
+        "dataType": "INT"
+      },
+      {
+        "name": "networkType",
+        "dataType": "STRING"
+      },
+      {
+        "name": "osType",
+        "dataType": "STRING"
+      },
+      {
+        "name": "commonIdentityUserId",
+        "dataType": "STRING"
+      },
+      {
+        "name": "deviceId",
+        "dataType": "STRING"
+      },
+      {
+        "name": "correlationId",
+        "dataType": "STRING"
+      },
+      {
+        "name": "wxcSite",
+        "dataType": "STRING"
+      },
+      {
+        "name": "wxcCallingNumber",
+        "dataType": "STRING"
+      },
+      {
+        "name": "wxcCalledNumber",
+        "dataType": "STRING"
+      },
+      {
+        "name": "localIP",
+        "dataType": "STRING"
+      },
+      {
+        "name": "publicIP",
+        "dataType": "STRING"
+      },
+      {
+        "name": "txMediaBitRate",
+        "dataType": "INT"
+      },
+      {
+        "name": "transportType",
+        "dataType": "STRING"
+      },
+      {
+        "name": "rxE2eLostPercent",
+        "dataType": "FLOAT"
+      },
+      {
+        "name": "rxMediaBitRate",
+        "dataType": "INT"
+      },
+      {
+        "name": "rxE2eJitter",
+        "dataType": "INT"
+      },
+      {
+        "name": "txCodec",
+        "dataType": "STRING"
+      },
+      {
+        "name": "quality",
+        "dataType": "STRING"
+      },
+      {
+        "name": "audioCodec",
+        "dataType": "STRING"
+      },
+      {
+        "name": "videoCodec",
+        "dataType": "STRING"
+      },
+      {
+        "name": "latency",
+        "dataType": "INT"
+      },
+      {
+        "name": "pmonth",
+        "dataType": "LONG"
+      },
+      {
+        "name": "pweek",
+        "dataType": "LONG"
+      },
+      {
+        "name": "inthour",
+        "dataType": "INT"
+      },
+      {
+          "name": "eventtime",
+          "dataType": "INT"
+      },
+      {
+        "name": "updatedon",
+        "dataType": "LONG"
+    }
+    ],
+    "dateTimeFieldSpecs": [{
+      "name": "pdate",
+      "dataType": "LONG",
+      "format" : "1:MILLISECONDS:EPOCH",
+      "granularity": "1:MILLISECONDS"
+    }]
+  }

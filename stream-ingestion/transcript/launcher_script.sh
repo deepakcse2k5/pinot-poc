@@ -2,7 +2,7 @@
 
 
 #  start kafka
- bin/pinot-admin.sh  StartKafka -zkAddress=localhost:2123/kafka -port 19092
+ bin/pinot-admin.sh  StartKafka -zkAddress=localhost:2181/kafka -port 19092
 
 
 # create topic
@@ -11,7 +11,7 @@
 
 # delete topic 
 
-# bin/kafka-topics.sh –-delete --zookeeper localhost:19092 –-topic transcript-topic 
+# bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic transcript-topic
 # Upload  schema and table config
 export PINOT_DIR=/Users/deemish2/git/pinot-poc/stream-ingestion/transcript
 
@@ -24,6 +24,9 @@ bin/pinot-admin.sh AddTable \
 bin/pinot-admin.sh AddTable \
     -tableConfigFile ${PINOT_DIR}/transcript-table-realtime.json \
     -exec
+
+
+bin/pinot-admin.sh AddSchema -schemaFile ${PINOT_DIR}/transcript-schema.json  -exec
 
 
 # Push  JSON into Kafka topic

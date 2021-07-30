@@ -31,6 +31,12 @@
     {
       "name": "score",
       "dataType": "FLOAT"
+    },{
+      "name": "age",
+      "dataType": "INT"
+    },{
+      "name": "marks",
+      "dataType": "FLOAT"
     }
   ],
   "dateTimeFieldSpecs": [{
