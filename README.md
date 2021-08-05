@@ -2,7 +2,9 @@
 ### Pinot setup locally using launcher script
 ###### Download Pinot Distribution from http://pinot.apache.org/download/
 $ export PINOT_VERSION=0.7.0
+
 $ tar -xvf apache-pinot-incubating-${PINOT_VERSION}-bin.tar.gz
+
 $ cd apache-pinot-incubating-${PINOT_VERSION}-bin
 #### Start Zookeeper
 bin/pinot-admin.sh StartZookeeper
