@@ -11,21 +11,47 @@ bin/pinot-admin.sh StartZookeeper
 ###### It will start zookeeper at port:2181
 ###### Create a pinot directory where you can create config file for controoler, broker and server
 ###### export PINOT_DIR= /path to pinot directory
-##### Start Pinot Controller
-###### bin/pinot-admin.sh StartController -configFileName ${PINOT_DIR}/config/pinot-controller.conf
-###### open other terminal
-##### Start Pinot Broker
-###### export PINOT_DIR= /path to pinot directory
-###### bin/pinot-admin.sh StartBroker -clusterName pinot-quickstart -zkAddress localhost:2181 -configFileName ${PINOT_DIR}/config/pinot-broker.conf
-##### Start Pinot Server
-###### export PINOT_DIR= /path to pinot directory
-###### bin/pinot-admin.sh StartServer -clusterName pinot-quickstart -zkAddress localhost:2181 -configFileName ${PINOT_DIR}/config/pinot-server.conf
+##### Start Service Manager
+
+###### bin/pinot-admin.sh StartServiceManager  -zkAddress localhost:2181 -clusterName pinot-quickstart -port -1   -bootstrapConfigPaths  ${PINOT_DIR}/config/pinot-controller.conf  ${PINOT_DIR}/config/pinot-broker.conf ${PINOT_DIR}/config/pinot-server.conf
+
+
+##### start minion 
+
+###### export PINOT_DIR= /path_to_pinot_directory
+
+####### bin/pinot-admin.sh StartMinion -clusterName pinot-quickstart -zkAddress localhost:2181 -configFileName ${PINOT_DIR}/config/pinot-minion.conf
+
+
+##### start kafka
+###### bin/pinot-admin.sh StartKafka -zkAddress=localhost:2181/kafka -port 19092
+
+##### Download Kafka and create topic
+###### bin/kafka-topics.sh — create — bootstrap-server localhost:19092 — replication-factor 1 — partitions 1 — topic transcript-topic
+
+
+
 ##### Batch Ingestion
 ###### export PINOT_DIR= /path_to_pinot_directory
 ##### Create table
 ###### bin/pinot-admin.sh AddTable \
 -tableConfigFile ${PINOT_DIR}/transcript-table-offline.json \
 -schemaFile ${PINOT_DIR}/transcript-schema.json -exec
+
+
+
+##### Stream Ingestion
+###### Create schema — transcript-schema.json
+###### Create table config — transcript-table-realtime.json
+###### export PINOT_DIR= /path_to_pinot_directory
+##### Create stream table
+###### bin/pinot-admin.sh AddTable \
+-schemaFile ${PINOT_DIR}/transcript-schema.json \
+-tableConfigFile ${PINOT_DIR}/transcript-table-realtime.json \
+-exec
+
+
+
 ##### Load data
 bin/pinot-admin.sh LaunchDataIngestionJob \
 jobSpecFile ${PINOT_DIR}/batch-job-spec.yml
@@ -36,19 +62,8 @@ The backfill job will then generate segments with the same name as the original 
 When uploading those segments to Pinot, the controller will replace the old segments with the new ones (segment names act like primary keys within Pinot) one by one.
 If the input directory contains main file under one segment and backfill input directory contains single file. In that case , single file will update and the rest file remain unchanged under segment.
 In case the raw data is modified in such a way that the original time bucket has fewer input files than the first ingestion run, backfill will fail.
-##### Stream Ingestion
-###### Create schema — transcript-schema.json
-###### Create table config — transcript-table-realtime.json
-##### start kafka
-###### bin/pinot-admin.sh StartKafka -zkAddress=localhost:2181/kafka -port 19092
-###### export PINOT_DIR= /path_to_pinot_directory
-##### Create stream table
-###### bin/pinot-admin.sh AddTable \
--schemaFile ${PINOT_DIR}/transcript-schema.json \
--tableConfigFile ${PINOT_DIR}/transcript-table-realtime.json \
--exec
-##### Download Kafka and create topic
-###### bin/kafka-topics.sh — create — bootstrap-server localhost:19092 — replication-factor 1 — partitions 1 — topic transcript-topic
+
+
 ##### Load Data
 ###### bin/kafka-console-producer.sh \
 — broker-list localhost:19092 \
